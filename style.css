@@ -1,0 +1,375 @@
+/* 
+   Global Styles and Variables
+ */
+:root {
+  --primary-dark: #202d48;
+  --primary-white: #ffffff;
+  --primary-black: #000000;
+  --secondary-lightblue: #c4d0eb;
+  --secondary-softblue: #f2f6ff;
+  --secondary-darkblue: #334977;
+  --secondary-grey: #535353;
+  --secondary-lightgrey: #9d9d9f;
+  --secondary-cyan: #17a2b8;
+  --secondary-yellow: #ffc107;
+  --secondary-green: #8bc34a;
+  font-family: "Poppins", sans-serif;
+}
+
+/*
+   Body Styling
+ */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--primary-white);
+  color: var(--primary-dark);
+  font-family: "Poppins", sans-serif;
+  background-image: url(./images/background_image.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background: linear-gradient(135deg, #f2f6ff 0%, #dfe9fd 100%);
+}
+
+/*
+   Heading Styles
+ */
+h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: var(--primary-dark);
+}
+
+/* 
+   Main Container Layout
+ */
+.main-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem;
+  gap: 2rem;
+  margin-top: 20px;
+}
+
+/* 
+   Section Containers (To Do Columns)
+*/
+.to-start-container,
+.in-progress-container,
+.under-review-container,
+.completed-container {
+  background-color: var(--secondary-softblue);
+  padding: 1rem;
+  border-radius: 12px;
+  min-width: 250px;
+  min-height: 50vh;
+  flex-grow: 1;
+  border: 1px solid #e0e7ff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+}
+.to-start-container:hover,
+.in-progress-container:hover,
+.under-review-container:hover,
+.completed-container:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Section Specific Heading Colors */
+.to-start-container h2 {
+  color: var(--secondary-lightblue);
+}
+
+.in-progress-container h2 {
+  color: var(--secondary-yellow);
+}
+
+.under-review-container h2 {
+  color: var(--secondary-cyan);
+}
+
+.completed-container h2 {
+  color: var(--secondary-green);
+}
+
+/* 
+   Add To Do Button Styling
+*/
+.addToDoButton {
+  width: 80%;
+  background-color: transparent;
+  border: 2px dashed var(--secondary-lightgrey);
+  color: var(--primary-dark);
+  padding: 8px 12px;
+  margin: 1rem auto;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.3s ease, transform 0.3s ease;
+}
+
+.addToDoButton:hover {
+  background-color: var(--secondary-softblue);
+  border-color: var(--primary-dark);
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.addToDoButton::before {
+  content: "+";
+  width: 24px;
+  height: 24px;
+  background-color: var(--primary-dark);
+  color: var(--primary-white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* 
+   Task Item Styling
+ */
+.lists {
+  background-color: var(--secondary-softblue);
+  padding: 0.8rem;
+  margin: 1rem auto;
+  border-radius: 8px;
+  width: 90%;
+  box-sizing: border-box;
+  border: 1px solid var(--secondary-darkblue);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Inputs and Selects inside Lists */
+.lists input[type="text"],
+.lists select,
+.todo-heading,
+.todo-description,
+.priority {
+  width: 100%;
+  padding: 0.4rem;
+  border: 1px solid var(--secondary-darkblue);
+  border-radius: 5px;
+  font-size: 12px;
+  background-color: var(--secondary-softblue);
+  color: #495057;
+  box-sizing: border-box;
+  margin-bottom: 0.5rem;
+}
+
+/* Priority Dropdown Styling */
+.priority {
+  font-size: 12px;
+}
+
+/* 
+   Add Task Button Styling
+*/
+.addTaskButton {
+  background-color: var(--secondary-darkblue);
+  color: var(--primary-white);
+  border: 1px solid var(--secondary-darkblue);
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 0.5rem;
+}
+
+.addTaskButton:hover {
+  background-color: #2a3d6a;
+  transform: translateY(-2px);
+}
+
+/* 
+   Task Display Container
+ */
+.task-container {
+  width: 100%;
+  padding: 0.5rem;
+  background-color: var(--secondary-softblue);
+  border: 1px solid var(--secondary-darkblue);
+  border-radius: 5px;
+  margin-bottom: 0.75rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+/* Task Text Styles */
+.task-container h3 {
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.task-container p {
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+}
+
+.task-container p strong {
+  font-weight: 600;
+}
+
+/* 
+   Task Action Buttons (Edit, Cancel, Update)
+ */
+button.edit-task,
+button.cancel-task,
+.update-task,
+.cancel-edit-task {
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  margin: 5px 0;
+  width: auto;
+  min-width: 120px;
+}
+
+/* Specific Button Colors */
+button.edit-task,
+.update-task {
+  background-color: #4caf50; /* Green */
+}
+
+button.cancel-task,
+.cancel-edit-task {
+  background-color: #f44336; /* Red */
+}
+
+/* Hover Effects */
+button.edit-task:hover,
+.update-task:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+}
+
+button.cancel-task:hover,
+.cancel-edit-task:hover {
+  background-color: #e53935;
+  transform: scale(1.05);
+}
+
+/* Active State */
+button.edit-task:active,
+button.cancel-task:active,
+.update-task:active,
+.cancel-edit-task:active {
+  transform: scale(0.98);
+}
+
+/* 
+   Lists (Tasks inside Columns)
+ */
+.lists {
+  background-color: var(--secondary-softblue);
+  padding: 0.8rem;
+  margin: 1rem auto;
+  border-radius: 8px;
+  width: 90%;
+  box-sizing: border-box;
+  border: 1px solid var(--secondary-darkblue);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.lists:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+}
+
+/* 
+   Task Display Container
+ */
+.task-container {
+  width: 100%;
+  padding: 0.5rem;
+  background-color: var(--secondary-softblue);
+  border: 1px solid var(--secondary-darkblue);
+  border-radius: 5px;
+  margin-bottom: 0.75rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.task-container:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 
+   Task Action Buttons (Edit, Cancel, Update)
+ */
+button.edit-task,
+button.cancel-task,
+.update-task,
+.cancel-edit-task {
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 600;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+  margin: 5px 0;
+  width: auto;
+  min-width: 120px;
+}
+
+button.edit-task:hover,
+.update-task:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+button.cancel-task:hover,
+.cancel-edit-task:hover {
+  background-color: #e53935;
+  transform: scale(1.05);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+button.edit-task:active,
+button.cancel-task:active,
+.update-task:active,
+.cancel-edit-task:active {
+  transform: scale(0.98);
+}
